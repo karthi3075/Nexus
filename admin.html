@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="icon" href="./logo.jpg">
+    <title>admin</title>
+</head>
+<body>
+    <script>
+        fetch("http://localhost/Nexus/get_post.php",{
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({
+                role:"admin"
+            })
+        })
+        .then(response=>response.json())
+        .then(data=>{
+            let status="";
+            data.map((valu)=>{
+                if(valu.user_name==window.sessionStorage.getItem("name"))
+                {
+                    status="true";
+                }
+                else{
+                    status="false";
+                }
+            })
+            if(status=="false")
+            {
+                window.location.replace("./login.html");
+            }
+        })
+    </script>
+   <div id="mobile" class="mobile">
+      <p>this page is not availabel at mobile</p>
+   </div>
+   <div class="desktop">
+    <nav class="navbar navbar-expand-lg bg-primary sticky-top">
+        <div class="container-fluid">
+           <div class="navbar-brand">
+              <img src="/logo.jpg" width="40px" style="border-radius: 10px;" alt="">
+              <!-- <span class="brand">Connecting People</span><span> Creating Experience</span> -->
+           </div>
+           <button class="navbar-toggler" data-bs-target="#navigation_menu" data-bs-toggle="collapse" style="border:none;">
+              <span class="navbar-toggler-icon" style="border:none;"></span>
+           </button>
+           <div class="navbar-collapse collapse" id="navigation_menu">
+              <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                       <a href="./index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./about.html" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./event.html" class="nav-link">Event</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./placement.html" class="nav-link">Placement</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./contact.html" class="nav-link">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./admin.html" class="nav-link active">Admin</a>
+                     </li>
+                    <li class="nav-item">
+                       <a href="#" class="nav-link" onclick="logout()">Logout</a>
+                    </li>
+              </ul>
+           </div>
+        </div>
+     </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2 text-white" style="height:100vh; padding:0px;">
+                    <ul class="list-group list-group-flush list-group-hover" style="width:100%;">
+                        <li class="list-group-item list-group-item-action" onclick="post()">create post</li>  
+                        <li class="list-group-item list-group-item-action" onclick="get_event()">event</li>
+                        <li class="list-group-item list-group-item-action" onclick="placement()">placement</li>
+                        <!-- <li class="list-group-item list-group-item-action" onclick="event_user()">event user</li>
+                        <li class="list-group-item list-group-item-action" onclick="placement_user()">placement user</li>
+                   -->
+                    </ul>
+                </div>
+                <div class="col-10">
+                   <div id="message"></div>
+                    <div class="content" id="content">
+                        <h2 class="ms-3 mt-3">Create Post</h2>
+                        <form action="" class="need-validation" novalidate>
+                            <div class="row p-3">
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">role</label>
+                                    <select name="" id="role" class="form-select" required>
+                                        <option value="">--select--</option>
+                                        <option value="event">event</option>
+                                        <option value="placement">placement</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" id="title" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Date</label>
+                                    <input type="date" id="date" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Time</label>
+                                    <input type="text" id="time" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Venue</label>
+                                    <input type="text" id="venue" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Link</label>
+                                    <input type="text" id="reg_link" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Image</label>
+                                    <input type="file" id="photo" class="form-control" required>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea name="" id="description" rows="4" class="form-control" required></textarea>
+                                </div>
+                               
+                                <div class="col-6 mt-3">
+                                    <input type="submit" value="post" onclick="admin_form();create_post(event);" class="btn btn-success btn-block">
+                                    <input type="reset" value="Reset" class="btn btn-info btn-block">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+   </div>
+</body>
+
+<script src="./bootstrap.min.js"></script>
+<script src="./admin.js"></script>
+<script src="./logout.js"></script>
+</html>

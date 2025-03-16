@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./card_details.css">
+    <link rel="icon" href="./logo.jpg">
+    <title>details</title>
+</head>
+<body>
+    <!-- <script>
+        if(!window.sessionStorage.getItem("name"))
+        {
+            window.location.replace("/login/login.html");
+        }
+    </script> -->
+    
+    <div class="box">
+        <div class="box_image" id="box_image">
+            <!-- <img src="/sample/IMG-20250309-WA0002.jpg" alt="" class="image"> -->
+        </div>
+        <div class="box_content" id="box_content">
+           
+        </div>
+    </div>
+</body>
+<script>
+    const params=new URLSearchParams(window.location.search);
+    const title=params.get("title");
+    const venue=params.get("venue");
+    const role=params.get("role");
+    const photo=params.get("photo");
+    
+    let box_image=document.getElementById("box_image");
+    box_image.innerHTML=`<img src="http://localhost/Nexus/uploads/${photo}" alt="" class="image">`;
+    // console.log(title,venue,role);
+
+    fetch("http://localhost/Nexus/get_card.php",{
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({
+                role:role,
+                title:title,
+                venue:venue
+        })
+    })
+    .then(response=>response.json())
+    .then(data=>{
+       
+        let box_content=document.getElementById("box_content");
+        box_content.innerHTML=` <h2 class="title">${data.title}</h2>
+            <p>Date : ${data.date}</p>
+            <p>Time : ${data.time}</p>
+            <p>Venue : ${data.venue}</p>
+            <p>Description : <pre style="white-space: pre-wrap;">${data.description}</pre></p>
+            <div class="button">
+                <a href="https://${data.reg_link}" target="_blank" class="reg_button">Register</a>
+                <a href="./${role}.html  " class="back_button">Back</a>
+            </div>`;
+    })
+</script>
+</html>

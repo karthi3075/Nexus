@@ -1,0 +1,63 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body{
+    background-image: url("./creative-glowing-neon-background_23-2149086432.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.box{
+    height:100vh;
+    width:100%;
+}
+.image{
+    width:100%;
+    border-radius: 10px;
+}
+.box_image{
+    margin:10px;
+}
+.box_content{
+    margin:10px;
+    line-height: 20px;
+    color:white;
+}
+@media(min-width:600px)
+{
+    .image{
+        width:100%;
+    }
+    .box{
+        display: flex;
+    }
+    .box_image{
+        width:50%;
+    }
+    .box_content{
+        width:50%;
+    }
+}
+.reg_button,.back_button{
+    text-decoration: none;
+    padding:5px 10px;
+    border-radius: 5px;
+}
+.button{
+    margin-top: 20px;
+}
+.reg_button{
+
+    background-color: aqua;
+}
+.back_button{
+    background: yellow;
+}
+.title{
+    margin-bottom: 15px;
+}
+/* p{
+   white-space:normal;
+} */

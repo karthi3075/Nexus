@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./bootstrap.min.js"></script>
+    <link rel="icon" href="./logo.jpg">
+    <title>Login</title>
+</head>
+<body class="d-flex align-items-center justify-content-center bg-dark">
+    <div class="container1 card fit-content p-3" style="position:absolute">
+        <form action="" class="need-validation" novalidate>
+            <h2 class="text-center mb-4">Admin Login</h2>
+            <!-- <div class="row">
+                <div class="col-12">
+                    <label for="user_role" class="mb-2">select role</label>
+                </div>
+                <div class="col-12 ">
+                    <select name="" id="role" class="form-select" required>
+                        <option value="">--select--</option>
+                        <option value="event_user"> event viewer</option>
+                        <option value="placement_user">placement viewer</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+            </div> -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <label for="user_name" class="mb-2">user name</label>
+                </div>
+                <div class="col-12 ">
+                    <input type="text" id="user_name" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <label for="password" class="mb-2">password</label>
+                </div>
+                <div class="col-12">
+                    <input type="text" id="password" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-12">
+                    <input type="submit" value="Login" class="btn btn-success col-12"  onclick="submit_form();login(event);">
+                </div>
+            </div>
+            <!-- <div class="d-flex flex-column">
+                <a href="/create_user/create_user.html" class="mb-2">I don't have an account</a>
+                <a href="/forget_password/forget_password.html" class="">forget password</a>
+            </div> -->
+            
+        </form>
+    </div>
+</body>
+<script src="./login.js"></script>
+</html>

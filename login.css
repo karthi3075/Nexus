@@ -1,0 +1,22 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body{
+    height:100vh;
+    width:100%;
+    background-image: url("./realistic-neon-lights-background_23-2148898675.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.card{
+    background-color: red;
+}
+/* .container1{
+    background-color: aqua;
+    border-radius: 10px;
+    min-width:200px;
+    height:50vh;
+} */

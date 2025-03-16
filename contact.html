@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./logo.jpg">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./contact.js"></script>
+</head>
+<body class="bg-dark"></body>
+<nav class="navbar navbar-expand-lg bg-primary sticky-top">
+    <div class="container-fluid">
+       <div class="navbar-brand">
+          <img src="./logo.jpg" width="40px" style="border-radius: 10px;" alt="">
+          <!-- <span class="brand">Connecting People</span><span> Creating Experience</span> -->
+       </div>
+       <button class="navbar-toggler" data-bs-target="#navigation_menu" data-bs-toggle="collapse" style="border:none;">
+          <span class="navbar-toggler-icon" style="border:none;"></span>
+       </button>
+       <div class="navbar-collapse collapse" id="navigation_menu">
+          <ul class="navbar-nav ms-auto ">
+                <li class="nav-item">
+                   <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                   <a href="./about.html" class="nav-link">About us</a>
+                </li>
+                <li class="nav-item">
+                   <a href="./event.html" class="nav-link">Event</a>
+                </li>
+                <li class="nav-item">
+                   <a href="./placement.html" class="nav-link">Placement</a>
+                </li>
+                <li class="nav-item">
+                   <a href="./contact.html" class="nav-link active">Contact us</a>
+                </li>
+                <li class="nav-item">
+                   <a href="./login.html" class="nav-link">Login</a>
+                </li>
+          </ul>
+       </div>
+    </div>
+ </nav>
+
+   
+    <div class="d-flex justify-content-center align-items-center"  style="position:absolute;width: 100%; height:80vh;">
+        <div class="card fit-content p-3">
+            <form action="" class="need-validation" novalidate>
+                <h2 class="text-center mb-4">Send Email</h2>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label for="name1" class="mb-2">Enter Your Name</label>
+                    </div>
+                    <div class="col-12 ">
+                        <input type="text" id="name1" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label for="message" class="mb-2">Message</label>
+                    </div>
+                    <div class="col-12">
+                        <textarea name="" id="message" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                    <div class="col-12">
+                        <input type="submit" value="Send" class="btn btn-success col-12"  onclick="submit_form();send_message(event)">
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+   
+</body>
+<style>
+    .content{
+        height:100vh;
+        width:100%;
+    }
+</style>
+
+<!-- <script src="/bootstrap/bootstrap.min.js"></script> -->
+
+</html>

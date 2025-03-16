@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./event.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="icon" href="./logo.jpg">
+    <title>Placement</title>
+</head>
+<body>
+    <!-- <script>
+        if(!window.sessionStorage.getItem("name"))
+        {
+            window.location.replace("/login/login.html");
+        }
+    </script> -->
+    
+  
+    <nav class="navbar navbar-expand-lg bg-primary sticky-top">
+        <div class="container-fluid">
+           <div class="navbar-brand">
+              <img src="./logo.jpg" width="40px" style="border-radius: 10px;" alt="">
+              <!-- <span class="brand">Connecting People</span><span> Creating Experience</span> -->
+           </div>
+           <button class="navbar-toggler" data-bs-target="#navigation_menu" data-bs-toggle="collapse" style="border:none;">
+              <span class="navbar-toggler-icon" style="border:none;"></span>
+           </button>
+           <div class="navbar-collapse collapse" id="navigation_menu">
+              <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                       <a href="./index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./about.html" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./event.html" class="nav-link">Event</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./placement.html" class="nav-link active">Placement</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./contact.html" class="nav-link">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="./login.html" class="nav-link">Login</a>
+                    </li>
+              </ul>
+           </div>
+        </div>
+     </nav>
+
+    <script>
+        fetch("http://localhost/Nexus/get_post.php",{
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({
+                role:"placement"
+            })
+        })
+        .then(response=>response.json())
+        .then(data=>{
+            let card_container=document.getElementById("card_container");
+            if(data.length>0)
+            {
+                let content="";
+                let role="placement";
+                data.map((valu=>{
+                    content+=`
+                    <div class="box">
+                        <div class="box_image">
+                            <img class="image" height="200" src="http://localhost/Nexus/uploads/${valu.photo}"  alt="">
+                        </div>
+                        <div class="box_content">
+                            <h5>${valu.title}</h5>
+                            <p>Date : ${valu.date} </p>
+                            <p>Time : ${valu.time} </p>
+                            <p>Venue : ${valu.venue} </p>
+                            
+                            <a href="./card_details.html?role=${role}&title=${valu.title}&venue=${valu.venue}&photo=${valu.photo}" class="join_button">join event</a>
+                        </div>
+                    </div>`;
+                }))
+                card_container.innerHTML=content;
+            }
+            else
+            {
+                card_container.innerHTML=`<div style="width:100%; height:50vh; display:flex; justify-content:center; align-items:center;">
+                        <p style="color:red;">no data found</p>
+                    </div>`;
+
+            }
+        })
+    </script>
+    <section class="content" id="card_container">
+       
+    </section>
+</body>
+<script src="./bootstrap.min.js"></script>
+</html>
